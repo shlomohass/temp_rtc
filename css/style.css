@@ -516,6 +516,104 @@
 /*************************************************************
  * Section Calendar:
  *************************************************************/
+.sec_slider_header {
+    padding: 6px;
+    position: relative;
+}
+.sec_slider_header > div {
+    width:100%;
+    overflow: hidden;
+    white-space: nowrap;
+    position: relative;
+}
+.sec_slider_header > div > ul {
+    position:relative;
+    left:0;
+    white-space: nowrap;
+    font-size: 0;
+}
+.sec_slider_header > div > ul > li {
+    position: relative;
+    font-size: 15px;
+    display:inline-block;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 950px;
+    height: 590px;
+    max-height: 66vh;
+    margin-left: 4px;
+    margin-right: 4px;
+    -webkit-transition: all 1.8s ease;                  
+        -moz-transition: all 1.8s ease;                 
+            -o-transition: all 1.8s ease;   
+                -ms-transition: all 1.8s ease;          
+                    transition: all 1.8s ease;
+}
+.sec_slider_header > div > ul > li.darker:after {
+    content: ' ';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,.35);
+    -webkit-transition: all 1.8s ease;                  
+        -moz-transition: all 1.8s ease;                 
+            -o-transition: all 1.8s ease;   
+                -ms-transition: all 1.8s ease;          
+                    transition: all 1.8s ease;
+}
+.sec_slider_header > div > ul > li .slider_slide_meta {
+    
+}
+.sec_slider_header > div > ul > li .slider_slide_action {
+    
+}
+.sec_slider_header > div > ul > li .slider_slide_content {
+    
+}
+.sec_slider_header > div > ul > li .slider_slide_content strong {
+    
+}
+.sec_slider_header > div > ul > li .slider_slide_content p {
+    
+}
+#tc_slide_right,
+#tc_slide_left {
+    background: #fff url("../img/arrow_blue.png");
+    border-radius: 3px;
+    width:58px;
+    height:50px;
+    position:absolute;
+    top:50%;
+    margin-top: -25px;
+    cursor:pointer;
+    -webkit-box-shadow: 0px 0px 9px 0px black;
+    -moz-box-shadow: 0px 0px 9px 0px black;
+    box-shadow: 0px 0px 9px 0px black;
+}
+#tc_slide_right:hover,
+#tc_slide_left:hover {
+    -webkit-box-shadow: 0px 0px 9px 2px black;
+    -moz-box-shadow: 0px 0px 9px 2px black;
+    box-shadow: 0px 0px 9px 2px black;
+}
+#tc_slide_right {
+    right:15px;
+}
+#tc_slide_left {
+    left:15px;
+    -moz-transform: scaleX(-1);
+        -o-transform: scaleX(-1);
+            -webkit-transform: scaleX(-1);
+                transform: scaleX(-1);
+                    filter: FlipH;
+                        -ms-filter: "FlipH";
+}
+/*************************************************************
+ * Section Calendar:
+ *************************************************************/
 .sec_calendar {
     
 }
