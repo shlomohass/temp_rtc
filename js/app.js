@@ -1,3 +1,5 @@
+var slider = null;
+
 $(function () {
     
     //Nav Stop Cat navigation:
@@ -64,17 +66,35 @@ $(function () {
     });
     
     //Top slider.
-    var slider = {
+    slider = {
+        allowNav : true,
+        set : {
+            slideSpeed : 500,
+            inactiveClass : "darker"
+        },
         main : $("#tc_slider_head"),
         con : $("#tc_slider_head").parent("div"),
         controls: { left: $("#tc_slide_left"), right: $("#tc_slide_right") },
         slides : [],
         posAt: 0,
-        changeOrder : function(side) {
+        newShiftOrder : function(side) {
+            var numOfSlides = slider.slides.length,
+                elMove = null,
+                pos = parseInt(slider.main.css("left"));
             if (side === "left") {
-                slider.main.
+                elMove = slider.slides[numOfSlides-1].clone(true, true);
+                pos -= slider.slides[numOfSlides-1].outerWidth() + 8;
+                elMove.addClass(slider.set.inactiveClass);
+                slider.main.css({ left : pos }).prepend(elMove);
+                slider.slides = slider.prepend(elMove, slider.slides);
+                slider.posAt++;
+            } else {
+                elMove = slider.slides[0].clone(true, true);
+                elMove.addClass(slider.set.inactiveClass);
+                slider.main.append(elMove);
+                slider.slides = slider.append(elMove, slider.slides);
             }
-        }
+        },
         calcPos: function (at) {
             if (at === 0) { return 0; }
             var sizeSlide = slider.slides[at].outerWidth() + 8,
@@ -86,6 +106,16 @@ $(function () {
                 pos = (sizeSlide * at) - Math.ceil((sizeCon - sizeSlide) / 2);
             }
             return pos * -1;
+        },
+        append :function (value, array) {
+          var newArray = array.slice(0);
+          newArray.push(value);
+          return newArray;
+        },
+        prepend :function (value, array) {
+          var newArray = array.slice(0);
+          newArray.unshift(value);
+          return newArray;
         }
     };
     if (slider.main.length) {
@@ -100,41 +130,69 @@ $(function () {
             //Set styles:
             $.each(slider.slides, function (index, ele) {
                 if (index !== slider.posAt) {
-                    ele.addClass("darker");
+                    ele.addClass(slider.set.inactiveClass);
                 } else {
-                    ele.removeClass("darker");
+                    ele.removeClass(slider.set.inactiveClass);
                 }
             });
             
             //Set starting:
-            //slider.main.css({ left : slider.calcPos(slider.posAt) });
+            slider.main.css({ left : slider.calcPos(slider.posAt) });
             
             //attach controls:
             slider.controls.left.click(function() {
                 var pos = 0;
-                if (slider.posAt > 0) {
+                if (!slider.allowNav) { return; }
+                slider.allowNav = false;
+                if (slider.posAt > 1) {
                     slider.posAt--;
                     pos = slider.calcPos(slider.posAt);
-                    slider.main.animate({ left : pos }, 500);
-                    slider.slides[slider.posAt].removeClass("darker");
-                    slider.slides[slider.posAt+1].addClass("darker");
+                    slider.main.animate({ left : pos }, slider.set.slideSpeed, function(){
+                        slider.allowNav = true;
+                    });
+                    slider.slides[slider.posAt].removeClass(slider.set.inactiveClass);
+                    slider.slides[slider.posAt+1].addClass(slider.set.inactiveClass);
                 } else {
-                    
+                    slider.posAt--;
+                    slider.newShiftOrder("left");
+                    pos = slider.calcPos(slider.posAt);
+                    slider.main.animate({ left : pos },  slider.set.slideSpeed,function() {
+                        slider.slides[slider.slides.length - 1].remove();
+                        slider.slides.pop();
+                        slider.allowNav = true;
+                    });
+                    slider.slides[slider.posAt].removeClass(slider.set.inactiveClass);
+                    slider.slides[slider.posAt+1].addClass(slider.set.inactiveClass);
                 }
             });
             slider.controls.right.click(function() {
                 var pos = 0;
-                if (slider.posAt < slider.slides.length - 1) {
+                if (!slider.allowNav) { return; }
+                slider.allowNav = false;
+                if (slider.posAt < slider.slides.length - 2) {
                     slider.posAt++;
                     pos = slider.calcPos(slider.posAt);
-                    slider.main.animate({ left : pos }, 500);
-                    slider.slides[slider.posAt].removeClass("darker");
-                    slider.slides[slider.posAt-1].addClass("darker");
+                    slider.main.animate({ left : pos },  slider.set.slideSpeed, function(){
+                        slider.allowNav = true;
+                    });
+                    slider.slides[slider.posAt].removeClass(slider.set.inactiveClass);
+                    slider.slides[slider.posAt-1].addClass(slider.set.inactiveClass);
                 } else {
-                    
+                    slider.posAt++;
+                    slider.newShiftOrder("right");
+                    pos = slider.calcPos(slider.posAt);
+                    slider.main.animate({ left : pos },  slider.set.slideSpeed, function() {
+                        var remLeft = slider.slides[0].outerWidth() + 8;
+                        slider.slides[0].remove();
+                        slider.main.css({ left : parseInt(slider.main.css("left")) + remLeft });
+                        slider.slides.shift();
+                        slider.posAt--;
+                        slider.allowNav = true;
+                    });
+                    slider.slides[slider.posAt].removeClass(slider.set.inactiveClass);
+                    slider.slides[slider.posAt-1].addClass(slider.set.inactiveClass);
                 }
             });
         }
     }
-    console.log(slider);
 });
