@@ -705,12 +705,142 @@ h2.section-header:before {
     padding:15px;
     display: inline-block;
     cursor: pointer;
+    font-size: 18px
 }
 .tc_sum_card span.tc_sum_card_learn i {
-    font-size: 12px;
+    font-size: 14px;
 }
-.tc_sum_card span.tc_sum_card_learn:hover i {
-    margin-left: 7px;
+/*************************************************************
+ * Section Contact Us:
+ *************************************************************/
+.sec_contact_us {
+    background-color: #e7f2ff;
+    padding:0;
+}
+.sec_contact_us .contact_side_form {
+    padding-left: 30px;
+    padding-top: 20px;
+}
+.sec_contact_us .contact_side_form h3 {
+    text-align: left;
+    font-size: 40px;
+    color:#014ba5;
+    font-weight:bold;
+    margin-bottom: 20px;
+}
+/*************************************************************
+ * Section Contact Social:
+ *************************************************************/
+.sec_contact_social {
+    background-color: #012047;
+}
+.sec_contact_social .contact-round-facebook,
+.sec_contact_social .contact-round-twitter,
+.sec_contact_social .contact-round-env {
+    margin:0px 10px 0px 10px;
+}
+.sec_contact_social .contact-round-facebook a,
+.sec_contact_social .contact-round-twitter a,
+.sec_contact_social .contact-round-env a {
+    display:inline-block;
+    background-color: #014ba5;
+    width:70px;
+    height:70px;
+    border-radius:50%;
+    font-size:25px;
+    color:white;
+    line-height: 69px;
+}
+.sec_contact_social .contact-round-twitter a {
+    background-color: #99bf0d;
+}
+.sec_contact_social .contact-round-facebook a i,
+.sec_contact_social .contact-round-twitter a i,
+.sec_contact_social .contact-round-env a i {
+   vertical-align: baseline
+}
+/*************************************************************
+ * Section Footer Links:
+ *************************************************************/
+.sec_footer_links {
+    background-color: #ebebeb;
+}
+.sec_footer_links h3 {
+    text-align: left;
+    font-size: 30px;
+    color:#014ba5;
+    font-weight:bold;
+    margin-bottom: 20px;
+}
+.sec_footer_links .left-col-about {
+    
+}
+.sec_footer_links .left-col-about img.logo-navy {
+    max-width: 100%;
+    margin-bottom: 10px;
+}
+.sec_footer_links .left-col-about p {
+    text-align: justify;
+    color: grey;
+}
+.sec_footer_links .mid-col-links {
+    
+}
+.sec_footer_links .mid-col-links .site-arrow-links {
+    width:100%;
+    font-size: 0;
+    text-align: left;
+}
+.sec_footer_links .mid-col-links .site-arrow-links li {
+    width:50%;
+    display:inline-block;
+}
+.sec_footer_links .mid-col-links .site-arrow-links a {
+    width:100%;
+    display:inline-block;
+    position:relative;
+    font-size:15px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding:5px 10px 5px 30px;
+    color: grey;
+}
+.sec_footer_links .mid-col-links .site-arrow-links a:before {
+    content: "\f0a9";
+    font-family: FontAwesome;
+    position:absolute;
+    left:1px;
+    top:5px;
+    color:#014ba5;
+     -webkit-ransition: left .2s ease;
+        -moz-transition: left .2s ease;
+            transition: left .2s ease;
+}
+.sec_footer_links .mid-col-links .site-arrow-links a:hover {
+    text-decoration: none;
+}
+.sec_footer_links .mid-col-links .site-arrow-links a:hover:before {
+    left:10px;
+}
+.sec_footer_links .right-col-contact .site-contact-links {
+    width:100%;
+    text-align: left;
+}
+.sec_footer_links .right-col-contact .site-contact-links li {
+    width:100%;
+    padding:5px 10px 5px 5px;
+}
+.sec_footer_links .right-col-contact .site-contact-links li a {
+    margin-left: 8px;
+}
+/*************************************************************
+ * Section Footer:
+ *************************************************************/
+.sec_footer {
+    background-color: white;
+    padding-top: 40px;
+    padding-bottom: 40px;
 }
 /*************************************************************
  * Helper:
