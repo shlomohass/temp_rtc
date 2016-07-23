@@ -7,9 +7,34 @@
     font-family: 'Montserrat', sans-serif;
     font-size: 15px;
     color: #3a3a3b;
+    text-align: center;
+    padding-top:60px;
+    padding-bottom: 60px;
 }
 .reset-list {
     
+}
+h2.section-header {
+    position:relative;   
+    display: inline-block;
+    font-weight: bold;
+    margin: 0 auto;
+    color:white;
+    margin-bottom: 30px;
+}
+h2.section-header:before,
+h2.section-header:after {
+    content : "";
+    position:absolute;
+    width:75px;
+    height:4px;
+    right:-90px;
+    top:17px;
+    background-color: white;
+}
+h2.section-header:before {
+    right:auto;
+    left:-90px;
 }
 /*************************************************************
  * Section Top Notes:
@@ -18,6 +43,7 @@
     background-color: #014ba5;
     height: 80px;
     color:white;
+    padding:0;
 }
 .sec_top_notes .tc_todays_note {
     
@@ -47,6 +73,7 @@
     border-bottom: 0px;
     max-height: 90vh;
     overflow-x: auto;
+    padding:0;
 }
 .sec_mainmenu .navbar-brand > img {
     display: block;
@@ -519,6 +546,7 @@
 .sec_slider_header {
     padding: 6px;
     position: relative;
+    padding:0;
 }
 .sec_slider_header > div {
     width:100%;
@@ -617,9 +645,73 @@
 .sec_calendar {
     
 }
-
-
-
+/*************************************************************
+ * Section Tweets:
+ *************************************************************/
+.sec_page_tweet {
+    background-color: #014ba5;
+    color:white;
+}
+.sec_page_tweet .sec_page_tweet_main {
+    text-align: center;
+    
+}
+.sec_page_tweet .sec_page_tweet_main i {
+    background-color: #1e7ad7;
+    padding:13px;
+    border-radius:50%;
+    font-size: 25px;
+    margin-right: 15px;
+}
+.sec_page_tweet .sec_page_tweet_main span {
+    font-weight: bold;
+    font-size: 25px
+}
+.sec_page_tweet .sec_page_tweet_content {
+    font-family: Georgia, serif;
+    font-size: 25px;
+    letter-spacing: 1px;
+    font-style: italic;
+    text-align: center
+}
+.sec_page_tweet .sec_page_tweet_content strong {
+    text-align: center;
+}
+/*************************************************************
+ * Section Resources:
+ *************************************************************/
+.sec_resources {
+    background-color: #012047;
+}
+.tc_sum_card {
+    border: 4px solid #9ed1f5;
+    padding:10px;
+    border-radius: 3px;
+    background-color: white;
+    margin-top: 30px;
+}
+.tc_sum_card > img.tc_sum_card_main_img {
+    max-width: 100%;
+}
+.tc_sum_card p.tc_sum_card_main_p {
+    padding-top: 20px;
+    margin-top: 10px;
+    border-top: 4px solid #a9abad;
+    line-height: 1.7em;
+}
+.tc_sum_card span.tc_sum_card_learn {
+    color: #29a1f6;
+    font-weight: bold;
+    padding:15px;
+    display: inline-block;
+    cursor: pointer;
+}
+.tc_sum_card span.tc_sum_card_learn i {
+    font-size: 12px;
+}
+.tc_sum_card span.tc_sum_card_learn:hover i {
+    margin-left: 7px;
+}
 /*************************************************************
  * Helper:
  *************************************************************/
